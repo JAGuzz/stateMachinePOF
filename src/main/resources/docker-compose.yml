@@ -1,0 +1,15 @@
+services:
+ StudentManagementDB:
+     image: postgres:latest
+     container_name: postgres_db_container
+     restart: always
+     environment:
+       POSTGRES_USER: testu
+       POSTGRES_PASSWORD: 12345
+       POSTGRES_DB: orders-states
+     ports:
+       - "5566:5432"
+     volumes:
+       - pgdata1:/var/lib/postgresql/data
+volumes:
+   pgdata1:

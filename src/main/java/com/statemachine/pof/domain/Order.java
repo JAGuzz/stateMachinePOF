@@ -8,10 +8,12 @@ import lombok.Setter;
 import java.util.UUID;
 
 @Entity
+@Table(name = "orders_table")
 @NoArgsConstructor
 @Getter
 @Setter
 public class Order {
+	
     @Id
     private UUID id = UUID.randomUUID();
     
@@ -34,5 +36,9 @@ public class Order {
 		return this.state;
 	}
 
+	public UUID getId() {
+		return id;
+	}
 
+	
 }
