@@ -33,6 +33,12 @@ public class StateMachineConfig extends EnumStateMachineConfigurerAdapter<OrderS
             .and()
             .withExternal().source(OrderState.SHIPPED).target(OrderState.DELIVERED).event(OrderEvent.DELIVER_ORDER)
             .and()
-            .withExternal().source(OrderState.NEW).target(OrderState.CANCELLED).event(OrderEvent.CANCEL_ORDER);
+            .withExternal().source(OrderState.NEW).target(OrderState.CANCELLED).event(OrderEvent.CANCEL_ORDER)
+            .and()
+            .withExternal().source(OrderState.VALIDATED).target(OrderState.CANCELLED).event(OrderEvent.CANCEL_ORDER)
+            .and()
+            .withExternal().source(OrderState.SHIPPED).target(OrderState.CANCELLED).event(OrderEvent.CANCEL_ORDER);
     }
 }
+// Esta clase se encarga de configurar los estados que seran validos para la stateMachine ademas de tambien definir 
+// las transisiones entre los posibles estados
